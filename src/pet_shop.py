@@ -80,9 +80,35 @@ def add_pet_to_customer(person, new_pet):
 # Optionals
 # ===========================
 
-# test16 - can afford?
+# test16, 17 & 18 - can afford?
 def customer_can_afford_pet(person, pet):
     if person["cash"] >= pet["price"]:
         return True
     else:
         return False
+
+# test19 - sell pet to customer
+    # STEPS NEEDED ...
+    # is pet there?
+    # get pet price
+    # can cust afford?
+    # remove cust cash
+    # add cash to shop
+    # increase_pets_sold
+    # remove pet from stock 
+    # add pet to cust
+def sell_pet_to_customer(shop, pet, customer):
+    find_pet_by_name(shop, pet)
+    price = pet["price"]
+    pets_sold = 1
+    if customer_can_afford_pet(customer, pet):
+        remove_customer_cash(customer, price)
+        add_or_remove_cash(shop, price)
+        increase_pets_sold(shop, pets_sold)
+        remove_pet_by_name(shop, pet)
+        add_pet_to_customer(customer, pet)
+
+
+
+   
+
