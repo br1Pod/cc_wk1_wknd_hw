@@ -96,19 +96,22 @@ def customer_can_afford_pet(person, pet):
     # add cash to shop
     # increase_pets_sold
     # remove pet from stock 
-    # add pet to cust
+    # add pet to customer
 def sell_pet_to_customer(shop, pet, customer):
-    find_pet_by_name(shop, pet)
-    price = pet["price"]
-    pets_sold = 1
-    if customer_can_afford_pet(customer, pet):
-        remove_customer_cash(customer, price)
-        add_or_remove_cash(shop, price)
-        increase_pets_sold(shop, pets_sold)
-        remove_pet_by_name(shop, pet)
-        add_pet_to_customer(customer, pet)
+    if pet not in shop["pets"]:
+        print("No, we don't have any i'm afraid. How about a Norwegian Blue Parrot instead?")
+        return
+    else:
+        price = pet["price"]
+        pets_sold = 1
+        if customer_can_afford_pet(customer, pet):
+            remove_customer_cash(customer, price)
+            add_or_remove_cash(shop, price)
+            increase_pets_sold(shop, pets_sold)
+            remove_pet_by_name(shop, pet)
+            add_pet_to_customer(customer, pet)
 
+    
 
 
    
-
