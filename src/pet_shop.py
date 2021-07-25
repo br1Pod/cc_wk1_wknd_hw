@@ -98,9 +98,16 @@ def customer_can_afford_pet(person, pet):
     # remove pet from stock 
     # add pet to customer
 def sell_pet_to_customer(shop, pet, customer):
+    
+
     if pet not in shop["pets"]:
         print("No, we don't have any i'm afraid. How about a Norwegian Blue Parrot instead?")
         return
+
+    elif customer["cash"] < pet["price"]:
+        print("You can't afford this animal. How about a Norwegian Blue Parrot instead?")
+        return
+
     else:
         price = pet["price"]
         pets_sold = 1
